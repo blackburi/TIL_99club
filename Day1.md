@@ -1,4 +1,13 @@
-# 99클럽 코테 스터디 0일차 TIL : Floyd-Warshall
+# 99클럽 코테 스터디 0일차 TIL
+
+## 문제 링크
+* 비기너 : https://school.programmers.co.kr/learn/courses/30/lessons/12916
+* 미들러 : https://www.acmicpc.net/problem/1072
+* 챌린저 : https://www.acmicpc.net/problem/11403
+
+## 비기너 : 
+## 미들러 : 
+## 챌린저 : Floyd-Warshall
 
 ```python
 # 경로 찾기
@@ -21,5 +30,14 @@ for k in range(n) :
 for row in graph :
     print(' '.join(map(str, row)))
 ```
+
+
+- 오늘의 학습 키워드
+- 공부한 내용 본인의 언어로 정리하기
+- 오늘의 회고
+  - 어떤 문제가 있었고, 나는 어떤 시도를 했는지
+  - 어떻게 해결했는지
+  - 무엇을 새롭게 알았는지
+  - 내일 학습할 것은 무엇인지
 
 # https://blog.naver.com/ndb796/221234427842
