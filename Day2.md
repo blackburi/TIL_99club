@@ -113,15 +113,18 @@
             # 친구 관계를 확인하고 탐색하지 않은 친구라면 탐색
             for i in graph[target] :
                 if dist[i] == -1 :
-                    # 케빈 베이컨
+                    # 케빈 베이컨(몇 다리를 건너야 하는지 표시)
                     dist[i] = dist[target] + 1
                     q.append(i)
 
     for i in range(1, n+1) :
+        # 각 사람마다 bfs를 돌리기 위해 dist를 초기화
         dist = [-1] * (n+1)
         bfs(i)
+        # 케빈 베이컨의 수를 numbers에 담는다.
         numbers.append(sum(dist))
 
+    # python에서 index는 0부터 시작하므로 +1을 해줘야 한다.
     print(numbers.index(min(numbers))+1)
     ```
 
