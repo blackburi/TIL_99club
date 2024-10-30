@@ -86,7 +86,7 @@
 
 
 
-## 챌린저 : Floyd-Warshall(플로이드 워셜)
+## 챌린저 : Floyd-Warshall + BFS
 
 * 문제 풀이 코드
 
