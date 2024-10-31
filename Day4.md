@@ -181,16 +181,60 @@
 
 
 
-## 챌린저 : Floyd-Warshall(플로이드 워셜)
+## 챌린저 : Bellman Ford
 
 * 문제 풀이 코드
 
     ```python
+    import sys
+    input = sys.stdin.readline
 
+    def bellman_ford() :
+        for i in range(n) :
+            for (s, e, t) in edges :
+                if times[e] > times[s] + t :
+                    times[e] = times[s] + t
+                    # n번째에 값이 또 갱신된다면 사이클이 존재한다는 뜻
+                    if i == n-1 :
+                        return True
+        return False
+
+    tc = int(input())
+
+    for _ in range(tc) :
+        # 지점, 도로, 웜홀
+        n, m, w = map(int, input().rstrip().split())
+
+        edges = []
+        times = [1e9]*(n+1)
+
+        # 도로
+        for _ in range(m) :
+            s, e, t = map(int, input().rstrip().split())
+            edges.append((s, e, t))
+            edges.append((e, s, t))
+        # 웜홀
+        for _ in range(w) :
+            s, e, t = map(int, input().rstrip().split())
+            edges.append((s, e, -t))
+
+        if bellman_ford() :
+            print('YES')
+        else :
+            print('NO')
     ```
 
-* 
-
+* 문제 풀이 tip
+    * 최단 거리 문제 -> Dijkstra(다익스트라) 알고리즘을 떠올릴 수 있다. 그러나 Dijkstra는 양수일 경우에만 사용하고, 이 문제 처럼 음수가 존재한다면 벨만 포드 알고리즘을 떠올릴 수 있다.
+    * 벨만 포드 vs 다익스트라
+        |알고리즘|벨만 포드|다익스트라|
+        |:---:|:---:|:---:|
+        |시간 복잡도|O(VE)|O(ElogV)|
+        |특징|음수 간선이 있어도 최적의 해를 찾을 수 있다. (음수 간선의 순환을 감지할 수 있기 때문)|음수 간선이 없다면 최적의 해를 찾을 수 있다. (음수 간선이 있다면 최적의 해를 구할수 없음)|
+        |구하는 방법|(정점-1)번의 매 단계마다 모든 간선을 전부 확인하면서 모든 노드간의 최단 거리를 구해나간다.|매번 방문하지 않은 노드 중에서 최단 거리가 가장 짧은 노드를 선택하여 한 단계씩 최단 거리를 구해나간다.|
+        |차이점|매 반복마다 모든 간선을 확인|방문하지 않은 노드 중 최단 거리와 가장 가까운 노드만을 방문|
+* 이 문제에서 실수한 점
+    * `float('inf')`는 수가 아닌 매우 큰 상태를 나타낸다. -> int와 연산이 불가능하다. 즉 `times = [1e9]*(n+1)` 이렇게 설정해야 한다. `times = [float('inf')]*(n+1)`로 설정하면 연산이 불가능하다. -> 모르겠다면 print(times)를 찍어보자!!
 
 
 ```python
