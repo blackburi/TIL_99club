@@ -147,7 +147,7 @@
         * 플로이드 워셜 문제
     2. 마지막 print에서 해당하는 사람의 번호를 모두 출력
         * 나의 경우 list로 저장해 두고 `*idx`를 통해 print했음
-        * `*`은 list를 unpacking해주는 기호
+        * `*(asterisk)`은 list를 unpacking해주는 기호
 
 
 
