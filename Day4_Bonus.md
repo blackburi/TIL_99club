@@ -38,15 +38,47 @@
 
 
 
-## 미들러 : 
+## 미들러 : binary search
 
 * 문제 풀이 코드
 
     ```python
+    import sys
+    input = sys.stdin.readline
 
+    n = int(input())
+    budgets = list(map(int, input().rstrip().split()))
+    m = int(input())
+
+    answer = 0
+
+    bot = 0
+    top = max(budgets)
+
+    while bot <= top :
+        mid = (bot + top) // 2
+
+        total = 0
+        for budget in budgets :
+            if budget <= mid :
+                total += budget
+            else : # budget > mid
+                total += mid
+
+        if total < m :
+            answer = mid
+            bot = mid + 1
+        elif total > m :
+            top = mid - 1
+        else : # total == m
+            answer = mid
+            break
+
+    print(answer)
     ```
 
-* 
+* 문제 풀이 Tip
+    * 아무 생각 없이 풀면 `top=10**9`로 잡고 풀게 된다.. 이럴 경우 두번째 테스트 케이스가 이상하게 나온다. budgets의 총합이 총 예산보다 작기 때문이다. 문제 조건을 보면 1번 모든 요청이 배정될 수 있는 경우에는 요청한 금액을 그대로 배정한다. -> 즉 budget의 최댓값을 출력하라는 뜻이다. 문제를 잘 읽자...
 
 
 
