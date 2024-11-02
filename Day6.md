@@ -257,6 +257,8 @@
 * 문제 풀이 Tip
     * 이 문제의 경우 floyd warshall, DFS 두 가지 방법으로 풀 수 있다.
     * floyd warshall은 시간 초과, DFS는 통과 했다.
+        * floyd warshall은 O(n^3), DFS는 O(n^2)의 시간 복잡도를 갖는다.
+        * 내 풀이에 대해 시간 복잡도가 어떻게 되는지 알고 있는 것이 중요하다.
 
 
 
