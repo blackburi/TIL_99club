@@ -178,6 +178,8 @@
         print(counter.items())
         # dict_items([('hi', 3), ('hey', 2), ('hello', 1)])
         ```
+* solution1은 python에서 시간 초과가 나고 solution2는 python에서 시간 초과가 나지 않는 이유
+    * 두 풀이의 차이는 `Counter()` 사용 유무이다. `Counter()`는 data의 빈도 수를 세는 기능을 가지고 있고, `Counter()` 내부적으로 해시 테이블을 사용하여 빠른 접근과 counting을 수행한다. 즉, solution1에서는 높이가 같은 나무에 대해서 연산을 계속 해야 하고 index를 넘겨서 계산을 하지만(시간 복잡도 O(n)), solution2에서는 높이가 같은 나무에 대해서 단 한번의 연산만 하고, index가 아닌 key, value로 data에 접근하기 때문에 더 빠르다(시간 복잡도 O(1)).
 
 
 ## 챌린저 : 
