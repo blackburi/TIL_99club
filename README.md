@@ -7,3 +7,4 @@
 * [Day4-Bonus](./Day4_Bonus.md) : 리스트, 이분 탐색, 이분 탐색
 * [Day5](./Day5.md) : 문자열, BFS, 그리디
 * [Day6](./Day6.md) : 문자열, 이분 탐색, DFS
+* [Day7](./Day7.md) : 문자열, 완전 탐색, BFS
