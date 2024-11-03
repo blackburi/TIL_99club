@@ -253,6 +253,37 @@
 
     print(answer)
     ```
+    ```python
+    # solution3 - floyd warshall : pypy, python 모두 통과
+    import sys
+    input = sys.stdin.readline
+
+    n, m = map(int, input().split())
+    
+    dp = [[False] * (n+1) for _ in range(n+1)]
+    
+    for _ in range(m):
+        s, e = map(int, input().split())
+        dp[s][e] = True
+    
+    for i in range(1, n+1):
+        dp[i][i] = True
+    
+    for k in range(1, n+1):
+        for i in range(1, n+1):
+            for j in range(1, n+1):
+                if dp[i][k] and dp[k][j]:
+                    dp[i][j] = True
+    
+    result = 0
+    for v in range(1, n+1):
+        for e in range(1, n+1):
+            if not (dp[v][e] or dp[e][v]):
+                break
+        else: result += 1
+    
+    print(result)
+    ```
 
 * 문제 풀이 Tip
     * 이 문제의 경우 floyd warshall, DFS 두 가지 방법으로 풀 수 있다.
