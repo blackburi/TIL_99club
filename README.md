@@ -8,4 +8,4 @@
 * [Day5](./Day5.md) : 구현, BFS, 그리디
 * [Day6](./Day6.md) : 구현, 이분 탐색, DFS
 * [Day7](./Day7.md) : 구현, 완전 탐색, BFS
-* [Day8](./Day8.md) : 구현, BFS, 
+* [Day8](./Day8.md) : 구현, BFS, heapq
