@@ -5,7 +5,7 @@
 * 미들러 : https://www.acmicpc.net/problem/1072
 * 챌린저 : https://www.acmicpc.net/problem/11403
 
-## 비기너 : String(문자열)
+## 비기너 : 구현
 
 * 문제 풀이 코드
 
