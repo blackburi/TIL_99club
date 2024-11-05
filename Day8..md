@@ -6,7 +6,7 @@
 - 챌린저: https://www.acmicpc.net/problem/4485
 
 
-## 비기너 : 
+## 비기너 : 구현
 
 * 문제 풀이 코드
 
