@@ -6,7 +6,7 @@
 * 챌린저 : https://school.programmers.co.kr/learn/courses/30/lessons/43236
 
 
-## 비기너 : list, dictionary
+## 비기너 : 자료 구조
 
 * 문제 풀이 코드
 

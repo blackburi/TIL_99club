@@ -6,15 +6,38 @@
 챌린저: https://school.programmers.co.kr/learn/courses/30/lessons/60059
 
 
-## 비기너 : 
+## 비기너 : 구현
 
 * 문제 풀이 코드
 
     ```python
+    import sys
+    input = sys.stdin.readline
 
+    n = int(input())
+
+    answer = []
+    dic = {}
+
+    for _ in range(n) :
+        name, work = input().split()
+        if work == 'enter' :
+            dic[name] = 1
+        else :
+            dic[name] = 0
+
+    for name in dic.keys() :
+        if dic[name] == 1 :
+            answer.append(name)
+
+    answer.sort(reverse=True)
+    for name in answer :
+        print(name)
     ```
 
-* 
+* 문제 풀이 Tip
+    * 자료 구조를 활용한 대표적인 문제이다.
+    * dictionary와 list를 활용하였다. list의 경우 연산이 익숙하지만 dictionary의 연산은 익숙하지 않은 경우가 많은데 알아두면 정말 유용하고 쓸 곳이 많다!!!
 
 
 
