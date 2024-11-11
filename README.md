@@ -12,7 +12,7 @@
 * [Day9](./Day9.md) : 구현, BFS, 구현(기업 기출)
 * [Day10](./Day10.md) : 구현, BFS, 투포인터
 * [Day11](./Day11.md) : 해쉬, BFS, 그리디
-* [Day11 Bonus](./Day11_Bonus.md) : 자료 구조, 
+* [Day11 Bonus](./Day11_Bonus.md) : 자료 구조, BFS, 구현(기업 기출)
 * [Day12](./Day12.md) : 스택, BFS, 구현(기업 기출)
 * [Day13](./Day13.md) : 구현, 수학, DFS
 * [Day14](./Day14.md) : 스택, 수학, 구현(기업 기출)
