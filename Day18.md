@@ -60,12 +60,30 @@
 
 
 
-## 챌린저 : 
+## 챌린저 : 기업 기출
 
 * 문제 풀이 코드
 
     ```python
+    from heapq import *
+    from itertools import *
 
+    def solution(k, n, reqs):
+        answer = 10**9
+        for com in combinations(range(1,n),k-1):
+            com = [0,*com,n]
+            S = 0
+            hq = [[] for i in range(k+1)]
+            for a,b,c in reqs:
+                while hq[c] and hq[c][0]<=a:
+                    heappop(hq[c])
+                if len(hq[c])==com[c]-com[c-1]:
+                    d = heappop(hq[c])-a
+                    S += d
+                    b += d
+                heappush(hq[c],a+b)
+            answer = min(answer,S)
+        return answer
     ```
 
 * 문제 풀이 Tip
