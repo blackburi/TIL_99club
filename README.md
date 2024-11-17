@@ -20,7 +20,7 @@
 * [Day16](./Day16.md) : 덱, 그리디, 구현
 * [Day17](./Day17.md) : 덱, 그리디, DP
 * [Day18](./Day18.md) : 덱, 그리디, 우선순위 큐(기업 기출)
-* [Day18 Bonus](./Day18_Bonus.md) : _, _, _
+* [Day18 Bonus](./Day18_Bonus.md) : 덱, _, _
 * [Day19](./Day19.md) : 우선순위 큐, _, 구현
 * [Day20](./Day20.md) : _, _, 그리디
 * [Day21](./Day21.md) : _, _, _
