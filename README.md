@@ -22,3 +22,4 @@
 * [Day18](./Day18.md) : _, _, _
 * [Day18 Bonus](./Day18_Bonus.md) : _, _, _
 * [Day19](./Day19.md) : 우선순위 큐, _, 구현
+* [Day20](./Day20.md) : _, _, 그리디
