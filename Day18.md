@@ -6,7 +6,7 @@
 - 챌린저: https://school.programmers.co.kr/learn/courses/30/lessons/214288
 
 
-## 비기너 : 
+## 비기너 : Deque
 
 * 문제 풀이 코드
 
