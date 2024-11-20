@@ -6,7 +6,7 @@
 챌린저: https://www.acmicpc.net/problem/1083
 
 
-## 비기너 : 우선순위 큐
+## 비기너 : Priority Queue
 
 * 문제 풀이 코드
 
