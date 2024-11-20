@@ -38,15 +38,45 @@
 
 
 
-## 미들러 : 
+## 미들러 : 우선순위 큐
 
 * 문제 풀이 코드
 
     ```python
+    import sys
+    input = sys.stdin.readline
+    import heapq
 
+    n = int(input())
+
+    # 강의 정보를 담는 list
+    lectures = []
+
+    for _ in range(n) :
+        _, s, e = map(int, input().rstrip().split())
+        lectures.append((s, e))
+
+    # 시작 시간이 작은 순서대로 정렬
+    lectures.sort(key = lambda x : x[0])
+
+    # 필요한 강의실의 수
+    cnt = 0
+
+    q = []
+    for lecture in lectures :
+        # 가장 일찍 끝나는 시간보다 시작 시간이 크면 -> 겹치지 않는다면
+        while q and q[0] <= lecture[0] :
+            heapq.heappop(q)
+        # 끝나는 시간을 넣어준다. -> 처음에 시작 시간을 기준으로 정렬했기 때문에
+        heapq.heappush(q, lecture[1])
+        # 현재 q에 담긴 강의 정보는 모두 시간이 겹치는 것
+        cnt = max(cnt, len(q))
+
+    print(cnt)
     ```
 
 * 문제 풀이 Tip
+    * 처음 아무생각 없이 `O(n**2)`의 시간 복잡도를 가지고 코드를 짰고 당연히 시간 초과가 났다. 이후 고민을 하다가 시작 시간 순서대로 정렬을 하고 이후 `heapq`를 활용하여 끝나는 시간을 기준으로 강의 정보를 넣었다. 처음에 시작 시간 순서대로 정렬을 했고, python에서는 default로 최소힙을 지원하기 때문에 끝나는 시간과 시작 시간만 비교하면 됐다. `heapq`에 들어갔다는 것은 시간이 겹친다는 뜻이다. 매 시행마다 강의실의 수를 갱신했다.
 
 
 
