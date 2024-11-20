@@ -1,4 +1,4 @@
-# 99클럽 코테 스터디 N일차 TIL
+# 99클럽 코테 스터디 23일차 TIL
 
 ## 문제 링크
 * 비기너: https://leetcode.com/problems/delete-greatest-value-in-each-row/description/
