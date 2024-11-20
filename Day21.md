@@ -47,15 +47,33 @@
 
 
 
-## 미들러 : 
+## 미들러 : 수학
 
 * 문제 풀이 코드
 
     ```python
+    import math
 
+    def solution(brown, yellow):
+        # 노란색 타일의 가로와 새로 길이를 각각 r, c라 하면 (r >= c)
+        # r*c = yellow
+        # 2*(r+c)+4 = brown
+        brown = (brown-4)//2
+        # r == c 인 경우
+        if brown**2 == 4*yellow :
+            r = brown//2
+            c = brown//2
+        # r != c 인 경우
+        else :
+            r = (brown + math.sqrt(brown**2-4*yellow))//2
+            c = (brown - math.sqrt(brown**2-4*yellow))//2
+        
+        answer = [r+2, c+2]
+        return answer
     ```
 
-* 문제 풀이 Tip
+* 문제 풀이 Tip콛
+    * yellow를 기준으로 가로의 길이와 세로의 길이(brown으로 두어도 상관없다.)를 문자로 두고 이차방정식으로 풀었다. 
 
 
 
