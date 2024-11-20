@@ -6,15 +6,32 @@
 - 챌린저: https://school.programmers.co.kr/learn/courses/30/lessons/258705
 
 
-## 비기너 : 
+## 비기너 : 구현(수학)
 
 * 문제 풀이 코드
 
     ```python
+    import math
 
+    class Solution:
+        def pickGifts(self, gifts: List[int], k: int) -> int:
+            gifts.sort()
+
+            while k :
+                # 제일 큰 선물
+                gift = gifts.pop()
+                # 제곱근을 취하고 정수로 만든다.
+                gifts.append(int(math.sqrt(gift)))
+                # 다시 정렬
+                gifts.sort()
+
+                k -= 1
+
+            return sum(gifts)
     ```
 
 * 문제 풀이 Tip
+    * 문제 그대로 구현을 하면 된다. 단 루트(제곱근) 계산을 위해서 `import math`를 하여 `sqrt`를 활용했다.
 
 
 
