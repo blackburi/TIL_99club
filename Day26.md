@@ -193,7 +193,7 @@
 
 
 
-## 챌린저 : 
+## 챌린저 : 수학(기업 기출)
 
 * 문제 풀이 코드
 
@@ -225,7 +225,7 @@
     ```
 
 * 문제 풀이 Tip
-    * 이 문제를 해결하면서 처음에 시간초과가 났고 그 이후 `itertools`와 `bisect`를 활용하여 문제를 해결했다.
+    * 이 문제를 해결하면서 처음에 시간초과가 났고 그 이후 `itertools`와 `bisect`를 활용하여 문제를 해결했다. 한 번 풀어봐서 생각해 낼 수 있었던 방법이었던 것 같다. 완전 처음 푸는 문제였다면 못 풀었을것 같다... 더 열심히 공부하자...
     * `itertools` : 대표적인 확률과 통계 라이브러리
         * `product(list, number)` : list에서 number개 원소를 뽑는데 중복 가능하며, 순서가 상관있는 함수
             * `product('ABCD', repeat=2)`
@@ -254,6 +254,27 @@
         # <itertools.permutations object at 0x0000019603871490>
         # <itertools.combinations object at 0x0000019603871490>
         # <itertools.combinations_with_replacement object at 0x0000019603871490>
+        ```
+    * `bisect` : 이분탐색 라이브러리, 정렬된 `list`에 특정 원소를 집어넣을 때, 해당 원소를 집어넣어야 하는 index를 알려주는 라이브러리로 `bisect_left`, `bisect_right`를 많이 사용한다.
+        * `bisect_left` : 정렬된 `list`에서 특정 `value`를 집어 넣을 때 가장 왼쪽 `index`를 알려준다.
+        * `bisect_right` : 정렬된 `list`에서 특정 `value`를 집어 넣을 때 가장 오른쪽 `index`를 알려준다.
+        ```python
+        # bisect_left(literable, value) : 왼쪽 인덱스를 구하기
+        # bisect_right(literable, value) : 오른쪽 인덱스를 구하기
+
+        from bisect import bisect_left, bisect_right
+
+        nums = [0,1,2,3,4,5,6,7,8,9]
+        n = 5
+
+        print(bisect_left(nums, n))  # 5
+        print(bisect_right(nums, n))  # 6
+
+        nums = [4, 5, 5, 5, 5, 5, 5, 5, 5, 6]
+        n = 5
+
+        print(bisect_left(nums, n))  # 1
+        print(bisect_right(nums, n))  # 9
         ```
 
 
