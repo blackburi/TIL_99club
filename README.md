@@ -36,3 +36,4 @@
 * [Day30](./Day30.md) : _, _, 다익스트라
 * [Day31](./Day31.md) : _, _, 이진트리
 * [Day31 Bonus](./Day31_Bonus.md) : _, _, _
+* [Day32](./Day32_Bonus.md) : _, _, 투포인터
