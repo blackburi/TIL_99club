@@ -3,7 +3,7 @@
 ## 문제 링크
 * 비기너 : https://school.programmers.co.kr/learn/courses/30/lessons/140108
 * 미들러 : https://school.programmers.co.kr/learn/courses/30/lessons/43238
-* 챌린저 : 
+* 챌린저: https://www.acmicpc.net/problem/2660
 
 
 ## 비기너 : 구현

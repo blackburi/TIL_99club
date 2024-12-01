@@ -1,9 +1,9 @@
-# 99클럽 코테 스터디 33일차 TIL
+# 99클럽 코테 스터디 32일차 TIL
 
 ## 문제 링크
-* 비기너: https://school.programmers.co.kr/learn/courses/30/lessons/133502
-* 미들러: https://school.programmers.co.kr/learn/courses/30/lessons/150370
-* 챌린저: https://www.acmicpc.net/problem/1958
+* 비기너: https://www.acmicpc.net/problem/13419
+* 미들러: https://school.programmers.co.kr/learn/courses/30/lessons/72410
+* 챌린저: https://www.acmicpc.net/problem/17609
 
 
 ## 비기너 : 
@@ -30,7 +30,7 @@
 
 
 
-## 챌린저 : DP
+## 챌린저 : Two Pointer
 
 * 문제 풀이 코드
 
@@ -38,38 +38,46 @@
     import sys
     input = sys.stdin.readline
 
-    word1 = input().rstrip()
-    word2 = input().rstrip()
-    word3 = input().rstrip()
+    n = int(input())
+    for _ in range(n) :
+        word = input().rstrip()
+        # 좌측과 우측 pointer
+        left, right = 0, len(word)-1
 
-    a, b, c = len(word1), len(word2), len(word3)
+        # 회문, 유사회문을 확인하는 변수
+        flag = 0
 
-    # 공통 부분을 저장하는 3차원 matrix
-    lcs = [[[0]*(c+1) for _ in range(b+1)] for _ in range(a+1)]
+        for _ in range(len(word)) :
+            if left >= right :
+                break
+            if word[left] == word[right] :
+                left += 1
+                right -= 1
+                continue
 
-    for i in range(1, a+1) :
-        for j in range(1, b+1) :
-            for k in range(1, c+1) :
-                # lcs에 해당하는 공통 부분이 있다면
-                if word1[i-1] == word2[j-1] and word2[j-1] == word3[k-1] :
-                    lcs[i][j][k] = lcs[i-1][j-1][k-1] + 1
-                # 공통부분이 존재하지 않는다면
-                else :
-                    lcs[i][j][k] = max(lcs[i][j][k-1], lcs[i][j-1][k], lcs[i-1][j][k])
+            # 뒷문자를 제거하여 같은 경우
+            if word[left] == word[right-1] :
+                # 남은 구간을 체크하도록 새로운 word인 tmp 생성
+                tmp = word[left:right]
+                # 회문이라면
+                if tmp[:] == tmp[::-1] :
+                    flag = 1
+                    break
+            # 앞문자를 제거하여 같은 경우
+            if word[left+1] == word[right] :
+                tmp = word[left+1:right+1]
+                if tmp[:] == tmp[::-1] :
+                    flag = 1
+                    break
+            
+            flag = 2
+            break
 
-    # 공통 부분 문자수열 길이 초기화
-    answer = -1
-
-    # 공통된 부분의 길이를 갱신
-    for i in range(a+1) :
-        for j in range(b+1) :
-            answer = max(max(lcs[i][j]), answer)
-
-    print(answer)
+        print(flag)
     ```
 
 * 문제 풀이 Tip
-    * 3차원 matrix는 여전히 머리속에서 잘 그려지지 않는 것 같다.. 코드 구현자체는 어렵지 않았지만 머리속에서 생각하고 그리는데 시간이 좀 걸렸다.
+    * 앞뒤로 pointer를 지정하여 회문인지를 확인하고, 추가로 문자 1개를 제거하였을때 회문이 되는 유사 회문이 되는지를 체크하면 되는 two pointer + 구현 문제였다.
 
 
 

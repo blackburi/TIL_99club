@@ -1,9 +1,9 @@
-# 99클럽 코테 스터디 34일차 TIL
+# 99클럽 코테 스터디 33일차 TIL
 
 ## 문제 링크
-* 비기너: https://school.programmers.co.kr/learn/courses/30/lessons/131128
-* 미들러: https://www.acmicpc.net/problem/17825
-* 챌린저: https://school.programmers.co.kr/learn/courses/30/lessons/258707
+* 비기너: https://school.programmers.co.kr/learn/courses/30/lessons/133502
+* 미들러: https://school.programmers.co.kr/learn/courses/30/lessons/150370
+* 챌린저: https://www.acmicpc.net/problem/1958
 
 
 ## 비기너 : 
@@ -30,52 +30,46 @@
 
 
 
-## 챌린저 : 구현(기업 기출)
+## 챌린저 : DP
 
 * 문제 풀이 코드
 
     ```python
-    from collections import deque
+    import sys
+    input = sys.stdin.readline
 
-    def solution(coin, cards) :
-        n = len(cards)
-        # 시작 카드 덱
-        start = cards[:n//3]
-        # 남은 카드 덱
-        rest = deque(cards[n//3:])
+    word1 = input().rstrip()
+    word2 = input().rstrip()
+    word3 = input().rstrip()
 
-        # 합이 n+1이 되는 쌍이 존재하는지 check하는 함수
-        def check(lst1, lst2) :
-            for x in lst1 :
-                if (x != n+1-x) and (n+1-x in lst2):
-                    lst1.remove(x)
-                    lst2.remove(n+1-x)
-                    return True
-            return False
+    a, b, c = len(word1), len(word2), len(word3)
 
-        answer = 1
-        # 버리는 카드를 전부 버리면 안된다 -> 나중에 쓸수 있기 때문에
-        get = []
+    # 공통 부분을 저장하는 3차원 matrix
+    lcs = [[[0]*(c+1) for _ in range(b+1)] for _ in range(a+1)]
 
-        while rest :
-            get.append(rest.popleft())
-            get.append(rest.popleft())
+    for i in range(1, a+1) :
+        for j in range(1, b+1) :
+            for k in range(1, c+1) :
+                # lcs에 해당하는 공통 부분이 있다면
+                if word1[i-1] == word2[j-1] and word2[j-1] == word3[k-1] :
+                    lcs[i][j][k] = lcs[i-1][j-1][k-1] + 1
+                # 공통부분이 존재하지 않는다면
+                else :
+                    lcs[i][j][k] = max(lcs[i][j][k-1], lcs[i][j-1][k], lcs[i-1][j][k])
 
-            if check(start, start) :
-                answer += 1
-            elif coin >= 1 and check(start, get) :
-                coin -= 1
-                answer += 1
-            elif coin >= 2 and check(get, get) :
-                coin -= 2
-                answer += 1
-            else :
-                break
-        return answer
+    # 공통 부분 문자수열 길이 초기화
+    answer = -1
+
+    # 공통된 부분의 길이를 갱신
+    for i in range(a+1) :
+        for j in range(b+1) :
+            answer = max(max(lcs[i][j]), answer)
+
+    print(answer)
     ```
 
 * 문제 풀이 Tip
-    * 자료구조 `deque`와 `remove()` 내장 함수를 활용하여 구현하는 문제이다. 자료구조와 내장 함수를 잘 알고 있다면 간단한 구현 문제이지만 모른다면 `index`로 접근하여 조금 귀찮게 풀어야 할 수도 있다. `remove()`의 경우에는 엄청 자주 쓰이지는 않지만 그래도 가끔 쓰이는 내장 함수이니 알아두는 것이 좋다는 생각이 든다.
+    * 3차원 matrix는 여전히 머리속에서 잘 그려지지 않는 것 같다.. 코드 구현자체는 어렵지 않았지만 머리속에서 생각하고 그리는데 시간이 좀 걸렸다.
 
 
 
