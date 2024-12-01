@@ -35,6 +35,7 @@
 * [Day29](./Day29.md) : _, _, 구현(기업 기출)
 * [Day30](./Day30.md) : _, _, 다익스트라
 * [Day31](./Day31.md) : _, _, 이진트리
-* [Day31 Bonus](./Day31_Bonus.md) : _, _, _
 * [Day32](./Day32.md) : _, _, 투포인터
+* [Day31 Bonus](./Day32_Bonus.md) : _, _, _
 * [Day33](./Day33.md) : _, _, DP
+* [Day34](./Day34.md) : _, _, 
