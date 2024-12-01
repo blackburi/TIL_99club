@@ -35,15 +35,40 @@
 
 
 
-## 미들러 : 
+## 미들러 : 완전 탐색
 
 * 문제 풀이 코드
 
     ```python
+    # k : 피로도, cnt : 방문한 던전 수
+    def dfs(k, cnt, dungeons, visited) :
+        global answer
+        
+        # 방문한 최대 던전 개수 갱신
+        if cnt > answer :
+            answer = cnt
+            
+        for i in range(len(dungeons)) :
+            # 아직 방문하지 않았고, 필요 피로도 이상 가지고 있는 경우
+            if (visited[i] is False) and (k >= dungeons[i][0]) :
+                visited[i] = True
+                dfs(k-dungeons[i][1], cnt+1, dungeons, visited)
+                visited[i] = False
 
+    def solution(k, dungeons):
+        global answer
+        
+        answer = 0
+        # 방문 처리
+        visited = [False] * len(dungeons)
+        
+        dfs(k, 0, dungeons, visited)
+        
+        return answer
     ```
 
 * 문제 풀이 Tip
+    * 처음에는 정렬을 하여 greedy로 풀려고 했지만 주어진 테케처럼 `필요 피로도`가 크다고 항상 먼저 방문하는 것이 방문 가능한 최대 던전 수가 되는 것은 아니기 때문에 완전 탐색으로 풀어야 겠다고 생각했다. 완전 탐색을 풀면서 느낀 점은 (특정 조건이 있지 않는 이상, 예를 들어 시작 던전의 index가 최소여야 한다는 이런 조건들) 최대 개수의 갱신은 같을 경우까지 제외하고 최대 개수가 커진 경우에만 갱신하면 된다.
 
 
 
