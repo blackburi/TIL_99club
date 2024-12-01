@@ -38,4 +38,4 @@
 * [Day32](./Day32.md) : _, _, 투포인터
 * [Day31 Bonus](./Day32_Bonus.md) : _, _, _
 * [Day33](./Day33.md) : _, _, DP
-* [Day34](./Day34.md) : _, _, 
+* [Day34](./Day34.md) : _, _, 구현(기업 기출)
